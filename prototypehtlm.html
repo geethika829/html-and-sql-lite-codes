@@ -1,0 +1,509 @@
+//subdrops layout
+The HTML (1)
+<div class="container">
+  <nav>
+  <ul class="bar">
+    <li><a href="#" class="active">Home</a></li>
+    <li class="has-dropdown">
+      <a href="#">About</a>
+      <ul class="dropdown">
+        <li><a href="#">The Company</a></li>
+        <li><a href="#">The Team</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="#">Contact</a>
+      <ul class="dropdown">
+        <li><a href="#">Email</a></li>
+        <li><a href="#">Phone</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Careers</a></li>
+  </ul>
+  </nav>
+</div>
+The CSS (1)
+
+* {
+  box-sizing: border-box;
+}
+
+
+.bar {
+  background-color: rgb(245, 193, 97);
+  width: 100%;
+  height: 40px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.bar li {
+  height: 100%;
+  width: 120px;
+  border-right: 1px solid rgb(235, 177, 69);
+}
+
+.bar li a {
+  color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.bar .has-dropdown ul li a{
+padding: 12px 0;
+}
+
+.bar li a:hover {
+  background-color: rgb(235, 177, 69);
+}
+
+.bar li a.active {
+  background-color: rgb(165, 113, 16);
+  color: white;
+}
+
+.dropdown {
+  background-color: rgb(245, 193, 97);
+  padding: 0;
+  list-style: none;
+  display: none;
+}
+The HTML (2)
+<form>
+  <div>
+    <span class="question">1. How did you hear about us?</span>
+    <div class="radio-group">
+      <div class="radio-item">
+        <input type="radio" name="hear_about_us" id="twitter" />
+        <label for="twitter">Twitter</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" name="hear_about_us" id="facebook" />
+        <label for="facebook">Facebook</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" name="hear_about_us" id="other" />
+        <label for="other">Other</label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <span class="question">2. Where do you live?</span>
+    <select name="country" id="country" required="required">
+      <option value="" selected="selected">Select country</option>
+      <option value="Afghanistan">Afghanistan</option>
+      <option value="Albania">Albania</option>
+      <option value="Algeria">Algeria</option>
+      <option value="American Samoa">American Samoa</option>
+      <option value="Andorra">Andorra</option>
+      <option value="Angola">Angola</option>
+      <option value="Anguilla">Anguilla</option>
+      <option value="Antarctica">Antarctica</option>
+    </select>
+  </div>
+
+  <div>
+    <span class="question">3. You age range</span>
+    <div class="radio-group">
+      <div class="radio-item">
+        <input type="radio" name="age_range" id="lower" />
+        <label for="lower">18-25</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" name="age_range" id="middle" />
+        <label for="middle">26-35</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" name="age_range" id="higher" />
+        <label for="higher">36 or more</label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <span class="question">4. Anything else we should know? </span>
+    <textarea name="message"></textarea>
+  </div>
+
+  <div>
+    <button class="submit-btn">Submit survey</button>
+  </div>
+</form>
+
+
+The CSS (2)
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 30px;
+}
+
+form {
+  max-width: 400px;
+}
+
+form > div {
+  margin-bottom: 20px;
+}
+
+.question {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.radio-group,
+select,
+textarea {
+  margin-left: 15px;
+  width: 200px;
+}
+
+textarea {
+  padding: 10px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.radio-item label {
+  margin-left: 5px;
+}
+
+.radio-item input {
+  margin: 0;
+}
+
+.submit-btn {
+  margin-left: 15px;
+  background-color: #555;
+  border: 1px solid #555;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+
+.bar li.has-dropdown:hover .dropdown {
+  display: block;
+}
+The HTML (3)
+
+<div class="tooltip">
+  <span>Top</span>
+    <div class="tooltip-text">This is the top of the tooltip</div>
+</div>
+The CSS (3)
+
+body {
+  margin: 60px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  padding: 6px;
+  background-color: #333;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+  display: inline-block;
+  top: -45px;
+  left: -12px;
+  visibility: hidden;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: -5px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #333;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+The HTML (4)
+
+<progress class="first" value="50" max="100"></progress>
+The CSS (4)
+
+.first {
+  border-radius: 0;
+  border: 2px solid purple;
+  height: 30px;
+  width: 250px;
+}
+
+.first::-webkit-progress-bar {
+  background-color: white;
+}
+
+.first::-webkit-progress-value {
+  background-color: purple;
+}
+The HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <img src="./girl-with-guitar.jpeg" alt="img" />
+        <img
+          src="./girl-with-guitar.jpeg"
+          alt="img"
+          class="translucent"
+        />
+      </div>
+    </div>
+  </body>
+</html>
+The CSS
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: #c8c7c7;
+  font-family: "Roboto", sans-serif;
+}
+
+.box {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.box img {
+  width: 48%;
+}
+
+.translucent {
+  filter: opacity(35%);
+}
+
+Template #2: Grayscale
+The HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <img src="./girl-with-guitar.jpeg" alt="img" />
+        <img
+          src="./girl-with-guitar.jpeg"
+          alt="img"
+          class="black-white"
+        />
+      </div>
+    </div>
+  </body>
+</html>
+The CSS
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: #c8c7c7;
+  font-family: "Roboto", sans-serif;
+}
+
+.box {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.box img {
+  width: 48%;
+}
+
+.black-white {
+  filter: grayscale(100%);
+}
+
+Template #3: Sepia
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <img src="./girl-with-guitar.jpeg" alt="img" />
+        <img
+          src="./girl-with-guitar.jpeg"
+          alt="img"
+          class="nineties-effect"
+        />
+      </div>
+    </div>
+  </body>
+</html>
+The CSS
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: #c8c7c7;
+  font-family: "Roboto", sans-serif;
+}
+
+.box {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.box img {
+  width: 48%;
+}
+
+.nineties-effect {
+  filter: sepia(100%);
+}
+
+
+<!-- Template #4: Hover
+The HTML --> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <img src="./girl-with-guitar.jpeg" alt="img" />
+        <img
+          src="./girl-with-guitar.jpeg"
+          alt="img"
+          class="hover-effect"
+        />
+      </div>
+    </div>
+  </body>
+</html>
+The CSS
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: #fafafa;
+  /* background: #c8c7c7; */
+  font-family: "Roboto", sans-serif;
+}
+
+.box {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.box img {
+  width: 48%;
+}
+
+.hover-effect:hover {
+  filter: grayscale(100%);
+}
+<head>
+  <style>
+    body { background-color: #C9D6BC; }
+  </style>
+</head>
+<body>
+</body>
